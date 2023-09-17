@@ -1,0 +1,95 @@
+.dark-theme {
+    --bg-color: rgb(3, 1, 18);
+    --bg-color2: rgb(2, 28, 47);
+    --fg-color: rgb(201, 219, 237);
+    --fg-color2: rgb(189, 202, 210);
+}
+.light-theme {
+    --bg-color: rgb(250, 249, 248);
+    --bg-color2: rgb(236, 236, 236);
+    --fg-color: rgb(8, 13, 22);
+    --fg-color2: rgb(10, 35, 47);
+}
+
+
+#website-title {
+    font-size: 2.6em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+body {
+    color : var(--fg-color);
+    background-color: var(--bg-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+}
+div {
+    background-color: var(--bg-color2);
+    margin: 2em 1em;
+    text-align: center;
+    border: 1px solid var(--fg-color2);
+    border-radius: 0.5em;
+    padding: 0.3em 2em;
+}
+#searchdiv {
+    border: none;
+    background-color: var(--bg-color);
+    
+}
+#searchdiv input{
+    background-color: var(--bg-color2);
+    color: var(--fg-color2);
+    border: 1px solid var(--fg-color2);
+    border-radius: 0.3em;
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+#searchdiv button {
+    background-color: var(--bg-color2);
+    color: var(--fg-color2);
+    border: 1px solid var(--fg-color2);
+    border-radius: 0.3em;
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+div h2 {
+    text-decoration: underline;
+    color: var(--fg-color2);
+    
+}
+div a {
+    text-decoration: none;
+}
+
+#themeSelector {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    margin-left: auto;
+    padding: 0.3em 1em;
+    background-color: var(--bg-color2);
+    color : var(--fg-color);
+    border: 1px solid var(--fg-color2);
+    border-radius: 0.4em;
+}
+
+div .source {
+    font-size: 0.6em;
+    display: block;
+    margin-right: 0;
+    text-align: right;
+    margin-bottom: 0;
+
+
+}
+
+@media (max-width: 800px){
+    body {
+        font-size: 3vw;
+    }
+    #website-title {
+        font-size: 2em;
+    }
+}
