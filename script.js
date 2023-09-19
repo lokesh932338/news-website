@@ -6,7 +6,10 @@ const currentDate = new Date()
 // const currentDateString = currentDate.toISOString() // return a value something like this '2023-09-16T19:59:25.373Z'
 const currentDateString = String(currentDate.getFullYear()) + "-"+ String(currentDate.getMonth() + 1) + "-" + String(currentDate.getDate() - 2)
 fetch(`https://newsapi.org/v2/top-headlines?from=${currentDateString}&apikey=${apikey}&sources=${newsSources}`)
-.then((textData) => textData.json())
+.then((textData) => {
+    console.log(textData);
+    return textData.json()
+})
 .then((jsonData) =>{
     const articles = jsonData.articles
     const headlinesDiv = document.getElementById("topHeadlines")
