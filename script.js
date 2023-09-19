@@ -1,6 +1,5 @@
 const apikey = "f3ca553ae20249648ac8ef34915f5774"
 
-// below code to display the top headlines is not tested due to error too many requests, retry !!!
 // trying to display top headlines from a reputed newspaper or agency...
 const newsSources = "google-news-in"
 const currentDate = new Date()
