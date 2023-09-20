@@ -11,8 +11,8 @@ fetch(`https://newsapi.org/v2/top-headlines?from=${currentDateString}&apikey=${a
     const articles = jsonData.articles
     const headlinesDiv = document.getElementById("topHeadlines")
     try{
-        
-        for(let i=0;i<articles.length; i++){
+        console.log(articles.length)
+        for(let i=0;i<10; i++){
             const data = articles[i]
             // creating elements for each headline and its description...
 
