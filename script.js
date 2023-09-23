@@ -1,6 +1,5 @@
 const apikey = "f3ca553ae20249648ac8ef34915f5774"
 
-test1
 // calling the starter function in the starting
 starter()
 
@@ -59,7 +58,6 @@ fetch(`https://newsapi.org/v2/top-headlines?from=${currentDateString}&apikey=${a
     }
 })
 .catch((error) =>console.log(error))
-main
 
 // trying to get the input search from the user.
 const inputField = document.getElementById("inputField")
