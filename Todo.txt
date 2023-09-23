@@ -1,0 +1,2 @@
+currently the site does not fetch data from newsapi, because of CORS.
+So  its useless without live server. make it to fetch data from the api.
