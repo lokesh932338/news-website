@@ -1,14 +1,50 @@
+:root {
+    scroll-behavior: smooth;
+}
+
 .dark-theme {
     --bg-color: rgb(3, 1, 18);
     --bg-color2: rgb(2, 28, 47);
+    --bg-color3: rgb(4, 57, 98);
+    --bg-color4 : rgb(21, 64, 82);
+   
     --fg-color: rgb(201, 219, 237);
     --fg-color2: rgb(189, 202, 210);
+    --fg-color3: rgb(253, 223, 201);
+    --fg-color4 : rgb(211, 211, 210);
 }
 .light-theme {
     --bg-color: rgb(250, 249, 248);
     --bg-color2: rgb(236, 236, 236);
+    --bg-color3: rgb(252, 125, 66);
+    --bg-color4 : rgb(55, 158, 181);
+
     --fg-color: rgb(8, 13, 22);
     --fg-color2: rgb(10, 35, 47);
+    --fg-color3: rgb(21, 17, 45);
+    --fg-color4: rgb(24, 25, 38);
+
+}
+
+header {
+    background-color: var(--bg-color3);
+    color: var(--fg-color3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 1em;
+}
+header a{
+    color: var(--fg-color3);
+}
+
+#right-section {
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: 1em;
 }
 
 
@@ -21,8 +57,16 @@ body {
     color : var(--fg-color);
     background-color: var(--bg-color);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2vw;
+    font-size: 1.7vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+main {
+    margin-top: 4em;
+}
+
 div {
     background-color: var(--bg-color2);
     margin: 2em 1em;
@@ -54,28 +98,27 @@ div {
     cursor: pointer;
 }
 
-div h2 {
+h2 {
     text-decoration: underline;
     color: var(--fg-color2);
     
 }
-div a {
+a {
     text-decoration: none;
+    color: var(--fg-color)
 }
 
 #themeSelector {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    margin-left: auto;
-    padding: 0.3em 1em;
-    background-color: var(--bg-color2);
-    color : var(--fg-color);
-    border: 1px solid var(--fg-color2);
-    border-radius: 0.4em;
+    background-color: var(--bg-color3);
+    color : var(--fg-color3);
+    border: none;
+    font-size: 0.85em;
+    ;
+    cursor: pointer;
+    
 }
 
-div .source {
+.source {
     font-size: 0.6em;
     display: block;
     margin-right: 0;
@@ -85,11 +128,90 @@ div .source {
 
 }
 
+.newsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid var(--fg-color2);
+    border-radius: 0.4em;
+    background-color: var(--bg-color2);
+    padding: 1em;
+    margin: 1em 0.4em;
+    
+}
+
+.imgdiv {
+    flex: 0 0 25%;
+    padding: 0;
+    border: none;
+    align-self: center;
+}
+.newsImg {
+    width: 100%;
+    margin: 0;
+
+}
+.hdContainer {
+    flex: 0 0 68%;
+    border: none;
+    
+    padding: 0.5em;
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    background-color: var(--bg-color4);
+    color: var(--fg-color4);
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+    padding-bottom: 1em;
+}
+
+
+#footerseparator {
+    margin: 0;
+    display: block;
+    border: 1px solid var(--fg-color);
+    padding: 0;
+
+}
+footer h3 {
+    margin: 0.4em;
+}
+
+#contactDev a {
+    text-decoration: none;
+    color: var(--fg-color);
+}
+
+#githubImage {
+    width: 3em;
+    margin-bottom: -0.3em;
+    margin-top: 0;
+}
+
+
 @media (max-width: 800px){
     body {
         font-size: 3vw;
     }
+    #right-section {
+        width: 30%;
+    }
     #website-title {
         font-size: 2em;
+    }
+    .newsContainer {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+    }
+    .imgdiv {
+        margin: 0;
+        align-self:safe;
+    }
+    .hdContainer {
+        margin: 0;
     }
 }
