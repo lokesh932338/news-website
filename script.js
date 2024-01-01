@@ -65,7 +65,7 @@ const searchButton = document.getElementById("searchButton")
 
 // function for handling the search action
 
-function search() {
+await function search() {
     const subject = inputField.value
     
     // determining the current date when the script is being used...
@@ -77,17 +77,21 @@ function search() {
 
     
     headingText = `NEWS results for ${subject}`
-
-    createPage(url,headingText)
+    const news_articles = await getData(url,headingText)
+    createPage(news_articles)
 
 }
 
-function createPage(url, headingText= ""){
+async function getData(url, headingText = ""){
+    const text_data = await fetch(url)      
+    const parsed_data = await text_data.json()
+    const news_articles = parsedData.articles;
+    return news_articles
+}
 
-    fetch(url)      
-    .then(text_data => text_data.json())
-    .then(parsedData => {
-        const articles = parsedData.articles;
+function createPage(articles){
+
+    
        
         // console.log(articles)
         const allNewsContainer = document.getElementById("allNewsContainer")
