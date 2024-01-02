@@ -17,55 +17,13 @@ function starter(){
     createPage(url,headingText)
 }
 
-// trying to display top headlines from a reputed newspaper or agency...
-const newsSources = "google-news-in"
-const currentDate = new Date()
-// const currentDateString = currentDate.toISOString() // return a value something like this '2023-09-16T19:59:25.373Z'
-const currentDateString = String(currentDate.getFullYear()) + "-"+ String(currentDate.getMonth() + 1) + "-" + String(currentDate.getDate() - 2)
-fetch(`https://newsapi.org/v2/top-headlines?from=${currentDateString}&apikey=${apikey}&sources=${newsSources}`)
-.then((textData) => {
-    console.log(textData);
-    return textData.json()
-})
-.then((jsonData) =>{
-    const articles = jsonData.articles
-    const headlinesDiv = document.getElementById("topHeadlines")
-    try{
-        
-        for(let i=0;i<articles.length; i++){
-            const data = articles[i]
-            // creating elements for each headline and its description...
-
-            const newsDiv = document.createElement("div")
-            const newsAnchor = document.createElement("a")
-            const newsHeading = document.createElement("h2")
-            const newsDescription = document.createElement('p')
-
-            // structuring all the elements inside the div
-            headlinesDiv.appendChild(newsDiv)
-            newsDiv.appendChild(newsAnchor)
-            newsAnchor.appendChild(newsHeading)
-            newsDiv.appendChild(newsDescription)
-
-            // filling the data to the elements
-            newsHeading.textContent = data["title"]
-            newsDescription.textContent = data["description"]
-            newsAnchor.href = data["url"]
-            newsAnchor.target = "_blank"
-        }
-    } catch(error) {
-        console.log(error)
-    }
-})
-.catch((error) =>console.log(error))
-
 // trying to get the input search from the user.
 const inputField = document.getElementById("inputField")
 const searchButton = document.getElementById("searchButton")
 
 // function for handling the search action
 
-async function search() {
+function search() {
     const subject = inputField.value
     
     // determining the current date when the script is being used...
@@ -77,21 +35,17 @@ async function search() {
 
     
     headingText = `NEWS results for ${subject}`
-    const news_articles = await getData(url,headingText)
-    createPage(news_articles)
+
+    createPage(url,headingText)
 
 }
 
-async function getData(url, headingText = ""){
-    const text_data = await fetch(url)      
-    const parsed_data = await text_data.json()
-    const news_articles = parsedData.articles;
-    return news_articles
-}
+function createPage(url, headingText= ""){
 
-function createPage(articles){
-
-    
+    fetch(url)      
+    .then(text_data => text_data.json())
+    .then(parsedData => {
+        const articles = parsedData.articles;
        
         // console.log(articles)
         const allNewsContainer = document.getElementById("allNewsContainer")
