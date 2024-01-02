@@ -65,7 +65,7 @@ const searchButton = document.getElementById("searchButton")
 
 // function for handling the search action
 
-await function search() {
+async function search() {
     const subject = inputField.value
     
     // determining the current date when the script is being used...
